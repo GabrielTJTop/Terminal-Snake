@@ -1,13 +1,24 @@
 #include <stdio.h>
 #include <stdlib.h>
 int main() {
+   // Create a 10x10 map with walls represented by '#' and empty spaces by
+   char mapa[10][10] = {
+      {'#', '#', '#', '#', '#', '#', '#', '#', '#', '#'},
+      {'#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#'},
+      {'#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#'},
+      {'#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#'},
+      {'#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#'},
+      {'#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#'},
+      {'#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#'},
+      {'#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#'},
+      {'#', '#', '#', '#', '#', '#', '#', '#', '#', '#'}
+   };
    
    // Game Loop
    do {
       // Clear the console screen
       system("cls");
-      // Create a 10x10 map with walls represented by '#' and empty spaces by
-      char mapa[10][10];
+      // Print the map
       for (int i = 0; i < 10; i++) {
          for (int j = 0; j < 10; j++) {
             if (i == 0 || i == 9 || j == 0 || j == 9) {
@@ -21,5 +32,5 @@ int main() {
       }
 
    } 
-   while (0);
+   while (1);
 }
