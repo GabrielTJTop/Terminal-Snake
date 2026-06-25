@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 int main() {
-   // Create a 10x10 map with walls represented by '#' and empty spaces by
+   // Create a 10x10 map with walls represented by '#' and empty spaces by and sets player position
    char mapa[10][10] = {
       {'#', '#', '#', '#', '#', '#', '#', '#', '#', '#'},
-      {'#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#'},
+      {'#', '@', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#'},
       {'#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#'},
       {'#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#'},
       {'#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#'},
@@ -13,24 +13,27 @@ int main() {
       {'#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#'},
       {'#', '#', '#', '#', '#', '#', '#', '#', '#', '#'}
    };
+   int PlayerX = 1;
+   int PlayerY = 1;
+   int GameOver = 1;
+   
    
    // Game Loop
-   do {
+   while (GameOver) {
       // Clear the console screen
       system("cls");
       // Print the map
       for (int i = 0; i < 10; i++) {
          for (int j = 0; j < 10; j++) {
-            if (i == 0 || i == 9 || j == 0 || j == 9) {
-               mapa[i][j] = '#';
+            // Check if the current position is the player's position
+            if (i == PlayerY && j == PlayerX) {
+               printf("@ ");
             } else {
-               mapa[i][j] = ' ';
+               // Print the map character at the current position
+               printf("%c ", mapa[i][j]);
             }
-            printf("%c ", mapa[i][j]);
          }
          printf("\n");
       }
-
-   } 
-   while (1);
+   }
 }
